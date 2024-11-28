@@ -1,0 +1,224 @@
+main {
+  width: 100%;
+  height: auto;
+
+  & h1,
+  p {
+    font-size: var(--tamaño);
+    font-weight: var(--bolder);
+    text-align: center;
+    color: var(--color, #20076d);
+    margin: 2px;
+  }
+}
+
+.carouselContainer {
+  width: 100%;
+  height: 85vh;
+  overflow: hidden;
+  position: relative;
+
+  & .tituloCarrucel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    font-size: 3em;
+    text-align: center;
+    color: white;
+  }
+
+  & .wrapper {
+    width: 1000%;
+    height: 100%;
+    display: flex;
+
+    & .image-container {
+      width: calc(100% / 10);
+      height: 100%;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.5);
+      }
+
+      & .description {
+        display: none;
+      }
+    }
+  }
+
+  & .butonCarousel {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+
+    & button {
+      background-color: transparent;
+      font-size: 6em;
+      border: none;
+      outline: none;
+      transition: all 0.3s ease;
+      filter: invert(1);
+
+      & img {
+        filter: drop-shadow(0 0 5px white);
+      }
+
+      &:hover {
+        transform: scale(0.93);
+        cursor: pointer;
+      }
+
+      &:active {
+        transform: scale(0.85);
+      }
+    }
+  }
+}
+
+.cajaImage {
+  background-color: transparent;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 7%;
+  margin: 50px 0;
+
+  & .Contener-buttons {
+    width: 30%;
+    height: 7vh;
+    padding: 4px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 4px;
+    overflow: hidden;
+    background-color: var(--color-primary);
+    border-radius: 27px;
+
+    & button,
+    select {
+      width: 50%;
+      height: 100%;
+      border: none;
+      outline: none;
+      text-align: center;
+      font-size: 19px;
+      color: var(--color-primary);
+      font-weight: 700;
+      padding: 10px;
+      background-color: white;
+      box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.8);
+
+      &:hover {
+        box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 1);
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+
+    & button {
+      border-top-left-radius: 24px;
+      border-bottom-left-radius: 24px;
+    }
+
+    & select {
+      border-top-right-radius: 24px;
+      border-bottom-right-radius: 24px;
+    }
+  }
+
+  .containerImages {
+    background-color: transparent;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    gap: 10px;
+    margin-inline: 50px;
+
+    & .image-container {
+      width: 0px;
+      height: 100%;
+      flex-grow: 1;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      justify-content: center;
+      transition: all 0.5s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 30%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+        pointer-events: none;
+      }
+
+      &:hover {
+        flex-grow: 12;
+
+        & img {
+          filter: brightness(1);
+        }
+
+        & h1 {
+          opacity: 1;
+          transition: all 0.38s ease;
+          transition-delay: 0.38s;
+        }
+      }
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+        filter: brightness(0.6);
+      }
+
+      & h1 {
+        position: absolute;
+        bottom: 0;
+        color: white;
+        z-index: 2;
+        opacity: 0;
+        transition: all 0.2s ease;
+        font-weight: 800;
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+.tituleGaleria,
+.pGaleria,
+.Contener-buttons,
+.containerImages {
+  view-timeline-name: --text;
+  view-timeline-axis: block;
+
+  animation-timeline: --text;
+  animation-name: show;
+
+  animation-range: entry 15% cover 50%;
+  animation-fill-mode: both;
+}

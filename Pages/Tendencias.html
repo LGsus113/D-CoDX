@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="../Tools/Images/Logos/Logo-Isotipo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../Style/Font/Font.css" />
+    <link rel="stylesheet" href="../Style/Nav/Navigator.css" />
+    <link rel="stylesheet" href="../Style/Main/Tendencias.css" />
+    <link rel="stylesheet" href="../Style/Footer/Footer.css" />
+    <title>D-CoDX</title>
+  </head>
+  <body>
+    <section class="carouselContainer">
+      <h1 class="tituloCarrucel">
+        En D-CoDX todo es posible, tus ideas en tan solo un click.
+      </h1>
+
+      <div id="carousel-container" class="wrapper"></div>
+
+      <div class="butonCarousel">
+        <button class="prev">
+          <img
+            src="../Tools/Images/Utilities/flechaIzquierda.png"
+            alt="izquierda"
+          />
+        </button>
+        <button class="next">
+          <img
+            src="../Tools/Images/Utilities/flechaDerecha.png"
+            alt="derecha"
+          />
+        </button>
+      </div>
+    </section>
+
+    <header>
+      <div class="logo">
+        <img src="../Tools/Images/Logos/Logo-Complete.png" alt="logo" />
+      </div>
+
+      <div class="navegador">
+        <a href="./Index.html">Inicio</a>
+        <a href="./Servicios.html">Servicios</a>
+        <a href="./Proyectos.html">Proyectos</a>
+        <a href="./Tendencias.html" class="active">Tendencias</a>
+        <a href="./Contactanos.html">Contacto</a>
+        <a href="./LoginPage.html">Sesion</a>
+      </div>
+    </header>
+
+    <main>
+      <h1 class="tituleGaleria" style="--tamaño: 60px; --bolder: 800">Galería</h1>
+
+      <p class="pGaleria" style="--tamaño: 20px; --bolder: 300; --color: black">
+        Muestra de las ultimas tendencias de disño web y movil colaborativo
+      </p>
+
+      <section class="cajaImage">
+        <div class="Contener-buttons">
+          <button id="toggleView">Diseño Web</button>
+          <select id="pagination-selector"></select>
+        </div>
+
+        <section id="images-container" class="containerImages"></section>
+      </section>
+    </main>
+
+    <footer>
+      <article class="primerArticle">
+        <a href="./Index.html" class="logoFooter">
+          <img src="../Tools/Images/Logos/Logo-Complete.png" alt="principal" />
+        </a>
+
+        <p>Diseño web y móvil para un futuro accesible</p>
+
+        <div class="refLogos">
+          <a href="#">
+            <img src="../Tools/Images/Utilities/whatsapp.png" alt="wsp" />
+          </a>
+          <a href="#">
+            <img src="../Tools/Images/Utilities/facebook.png" alt="fb" />
+          </a>
+          <a href="#">
+            <img src="../Tools/Images/Utilities/instagram.png" alt="itg" />
+          </a>
+          <a href="#">
+            <img src="../Tools/Images/Utilities/x.png" alt="x" />
+          </a>
+        </div>
+
+        <span>© 2024. All rights reserved.</span>
+      </article>
+
+      <article class="segundoArticle">
+        <h1 style="--tamaño: 2.3em; --separata: 0; --bolder: bold">Asesoría</h1>
+        <p style="--tamaño: 1.1em; --bolder: 500">
+          +51 945 276 882 <br />
+          dcdx.peru@gmail.com
+        </p>
+      </article>
+
+      <article class="tercerArticle">
+        <h1 style="--tamaño: 2.3em; --separata: 0; --bolder: bold">
+          Más Información
+        </h1>
+        <p style="--tamaño: 1.1em; --bolder: 500">
+          Ingresa tu correo electrónico
+        </p>
+        <input
+          type="text"
+          name="message"
+          placeholder="Tu correo aquí por favor"
+        />
+        <button>Enviar solicitud de información</button>
+      </article>
+    </footer>
+
+    <script src="../JS/Carousel.js"></script>
+    <script src="../JS/APIs-Image.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const container1 = document.getElementById("images-container");
+        const viewToggleButton1 = document.getElementById("toggleView");
+        const paginationSelector1 = document.getElementById(
+          "pagination-selector"
+        );
+        const query1 = "web+design+trends";
+        createImageFetcher(
+          container1,
+          viewToggleButton1,
+          paginationSelector1,
+          query1
+        );
+
+        const cointainer2 = document.getElementById("carousel-container");
+        const query2 = "digital+technology";
+        createImageFetcher(cointainer2, null, null, query2);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+main {
+  width: 100%;
+  height: auto;
+}
+
+.contenerManchasCard {
+  width: 100%;
+  height: auto;
+  padding: 0 12%;
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  & article {
+    width: 100%;
+    height: 50vh;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 9rem;
+
+    & div {
+      width: 50%;
+      height: 45vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    & .imageBlend {
+      position: relative;
+      box-shadow: inset 5px 5px 15px rgba(255, 255, 255, 1),
+        inset -5px -5px 15px rgba(255, 255, 255, 1);
+
+      & img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        mix-blend-mode: screen;
+        filter: drop-shadow(0 0 5px black);
+
+        &[alt="cont"] {
+          top: 0;
+          z-index: 4;
+
+          &:hover {
+            filter: brightness(1.15);
+          }
+        }
+
+        &[alt="form"] {
+          top: 0;
+          z-index: 2;
+          background-color: white;
+          object-fit: cover;
+        }
+      }
+    }
+
+    & .description {
+      padding: 30px;
+      text-align: center;
+      flex-direction: column;
+
+      & h3,
+      p {
+        color: var(--color);
+        margin: var(--separata, 0);
+        font-size: var(--tamaño);
+        font-weight: var(--bolder, 200);
+      }
+    }
+  }
+}
+
+.operationSection {
+  width: 100%;
+  height: auto;
+  padding: 0 12%;
+  margin-top: 100px;
+
+  & h3,
+  p {
+    text-align: center;
+    font-size: var(--tamaño);
+    font-weight: var(--bolder);
+    margin: var(--separata);
+  }
+
+  & h3 {
+    position: relative;
+    z-index: 2;
+    font-family: "Anton", sans-serif;
+    color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    background-image: url(../../Tools/Images/Utilities/titule.jpg);
+    background-size: cover;
+    background-position-y: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 50% #20076de3);
+  }
+
+  & section {
+    width: 100%;
+    height: auto;
+    padding: 0 10px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+
+    & div {
+      width: 100%;
+      height: 41vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      transition: all 0.3s ease;
+
+      & img,
+      article {
+        width: 100%;
+        height: 50%;
+        color: white;
+        background-color: var(--color-contrast);
+        transition: all 0.3s ease;
+      }
+
+      & article {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+
+        & p {
+          font-size: 20px;
+          font-weight: 200;
+        }
+      }
+
+      &:hover img {
+        transform: scale(1.05);
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.contenerManchasCard article,
+.operationSection h3,
+.operationSection p,
+.operationSection section {
+  view-timeline-name: --text;
+  view-timeline-axis: block;
+
+  animation-timeline: --text;
+  animation-name: show;
+
+  animation-range: entry 15% cover 35%;
+  animation-fill-mode: both;
+}
